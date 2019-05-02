@@ -343,9 +343,25 @@
                             http.get(reportURL, {responseType: 'arraybuffer'}).
                               success(function(data, status, headers, config) {
                                 var contentType = headers('Content-Type');
-                                var file = new Blob([data], {type: contentType});
+
+                                if (scope.formData.outputType == "HTML") {
+                                  var file = new Blob([data], {type: "text/html"});
+                                }
+                                if (scope.formData.outputType == "XLS"){
+                                  var file = new Blob([data], {type: "application/vnd.ms-excel"});
+                                }
+                                if (scope.formData.outputType == "PDF"){
+                                  var file = new Blob([data], {type: "application/pdf"});
+                                }
+                                if (scope.formData.outputType == "CSV"){
+                                  var file = new Blob([data], {type: "text/csv"});
+                                }
+                                if (scope.formData.outputType == "XLSX"){
+                                  var file = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+                                }
                                 var fileContent = URL.createObjectURL(file);
 
+                                var reader = new FileReader();
                                 // Pass the form data to the iframe as a data url.
                                 scope.baseURL = $sce.trustAsResourceUrl(fileContent);
                               });
