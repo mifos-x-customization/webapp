@@ -128,7 +128,7 @@
                   <div class="form-group">
                      <label class="control-label col-sm-2" for="mobileNo">{{'label.input.mobilenumber' | translate}}</label>
                      <div class="col-sm-3">
-                        <input type="text" id="mobileNo" name="mobileNo" ng-model="formData.mobileNo"
+                        <input type="text" id="mobileNo" name="mobileNo" ng-model="formData.mobileNo" required
                            ng-pattern="/^[0-9]+$/"  class="form-control"/>
                      </div>
                      <div class="col-sm-2">
@@ -143,14 +143,14 @@
                      <label class="control-label col-sm-2" ng-hide="showNonPersonOptions">{{'label.input.dateofbirth' | translate}}</label>
                      <label class="control-label col-sm-2" ng-show="showNonPersonOptions">{{'label.input.incorporationdate' | translate}}</label>
                      <div class="col-sm-3">
-                        <input id="dateofbirth" type="text" name="dateofbirth" datepicker-pop="dd MMMM yyyy"
+                        <input id="dateofbirth" type="text" name="dateofbirth" datepicker-pop="dd MMMM yyyy" required
                            ng-model="first.dateOfBirth" is-open="opened1" min="minDate" max="restrictDate"  class="form-control"/>
                      </div>
                      <div data-ng-switch on="showNonPersonOptions">
                         <div data-ng-switch-when="false">
                            <label class="control-label col-sm-2">{{'label.input.gender' | translate}}</label>
                            <div class="col-sm-3">
-                              <select id="genderId" ng-model="formData.genderId"  class="form-control"
+                              <select id="genderId" ng-model="formData.genderId" required class="form-control"
                                  ng-options="gender.id as gender.name for gender in genderOptions" value="{{gender.id}}">
                                  <option value="">--{{'label.menu.gender' | translate}}--</option>
                               </select>
@@ -228,9 +228,9 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="control-label col-sm-2" for="externalId">{{'label.input.externalid' | translate}}</label>
+                     <label class="control-label col-sm-2" for="externalId">{{'Aadhar #' | translate}}</label>
                      <div class="col-sm-3">
-                        <input type="text" id="externalId" name="externalId" ng-model="formData.externalId"  class="form-control"/>
+                        <input type="text" id="externalId" name="externalId" ng-model="formData.externalId"  required class="form-control"/>
                      </div>
                   </div>
                   <div class="form-group" has-permission="ACTIVATE_CLIENT">
@@ -251,7 +251,7 @@
                   <div class="form-group">
                      <label class="control-label col-sm-2">{{'label.input.submittedon' | translate}}</label>
                      <div class="col-sm-3">
-                        <input id="submittedon" type="text" name="submittedon" datepicker-pop="dd MMMM yyyy"
+                        <input id="submittedon" type="text" name="submittedon" datepicker-pop="dd MMMM yyyy" required
                            ng-model="first.submitondate" is-open="opened1" min="'2000-01-01'" max="restrictDate"  class="form-control"/>
                      </div>
                   </div>
@@ -302,7 +302,7 @@
                               <label class="control-label col-sm-2" for="firstName">{{'label.input.firstname' | translate }}</label>
 
                               <div class="col-sm-3">
-                                  <input type="text" id="firstName" name="firstName"  ng-model="familyArray[$index].firstName"  class="form-control">
+                                  <input type="text" id="firstName" name="firstName"  ng-model="familyArray[$index].firstName" required class="form-control">
                               </div>
 
                           </div>
@@ -372,7 +372,7 @@
                                   <label>{{ 'label.input.gender' | translate }}</label>
                               </div>
                               <div class="col-sm-3" >
-                                  <select chosen="genderIdOptions" id="genderIdOption" ng-model="familyArray[$index].genderId"  class="form-control"
+                                  <select chosen="genderIdOptions" id="genderIdOption" ng-model="familyArray[$index].genderId" required  class="form-control"
                                           ng-options="genderIdOption.id as genderIdOption.name for genderIdOption in genderIdOptions track by genderIdOption.id"
                                           value="formData.genderId"></select>
                               </div>

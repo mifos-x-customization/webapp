@@ -253,6 +253,7 @@
                 this.formData.dateFormat = scope.df;
                 this.formData.activationDate = reqDate;
 
+
                 if (!_.isUndefined(scope.datatables) && scope.datatables.length > 0) {
                     angular.forEach(scope.datatables, function (datatable, index) {
                         scope.columnHeaders = datatable.columnHeaderData;
@@ -284,6 +285,8 @@
                 if (routeParams.officeId) {
                     this.formData.officeId = routeParams.officeId;
                 }
+
+                
 
                 if (scope.first.submitondate) {
                     reqDate = dateFilter(scope.first.submitondate, scope.df);
