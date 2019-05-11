@@ -103,9 +103,9 @@
 
                 if(scope.enableAddress===true)
                 {
-                    scope.addressTypes=data.address[0].addressTypeIdOptions;
-                    scope.countryOptions=data.address[0].countryIdOptions;
-                    scope.stateOptions=data.address[0].stateProvinceIdOptions;
+                    scope.addressTypes=data.address.addressTypeIdOptions;
+                    scope.countryOptions=data.address.countryIdOptions;
+                    scope.stateOptions=data.address.stateProvinceIdOptions;
 
                     resourceFactory.addressFieldConfiguration.get({entity:entityname},function(data){
 
@@ -286,7 +286,7 @@
                     this.formData.officeId = routeParams.officeId;
                 }
 
-                
+
 
                 if (scope.first.submitondate) {
                     reqDate = dateFilter(scope.first.submitondate, scope.df);
