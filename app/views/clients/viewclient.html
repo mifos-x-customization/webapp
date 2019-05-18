@@ -760,6 +760,14 @@
 									{{address.countryName}}
 								</td>
 							</tr>
+							<tr ng-show="view.residenceTypeId">
+								<th >
+									{{ 'Residence Type' | translate }}
+								</th>
+								<td>
+									{{address.residenceTypeName}}
+								</td>
+							</tr>
 							<tr ng-show="view.postalCode">
 								<th >
 									{{ 'label.input.postal_code' | translate }}

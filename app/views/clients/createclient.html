@@ -44,7 +44,15 @@
                            <option value="">--{{'label.menu.legalForm' | translate}}--</option>
                         </select>
                      </div>
+                     <label class="control-label col-sm-2">{{'Voter Id Card' | translate}}</label>
+                     <div class="col-sm-3">
+                       <input type="text" id="voterId" name="voterId" ng-model="formData.voterId"  class="form-control" 
+                          minlength="11" late-Validate/>
+                     </div>
                   </div>
+
+
+
                   <div data-ng-switch on="showNonPersonOptions">
                      <div data-ng-switch-when="false">
                         <div class="form-group">
@@ -62,6 +70,8 @@
                                </span>
                               <form-validate valattributeform="createclientform" valattribute="firstname"/>
                            </div>
+
+
                         </div>
                      </div>
                   </div>
@@ -258,6 +268,11 @@
                         <input id="submittedon" type="text" name="submittedon" datepicker-pop="dd MMMM yyyy" required
                            ng-model="first.submitondate" is-open="opened1" min="'2000-01-01'" max="restrictDate"  class="form-control"/>
                      </div>
+                     <label class="control-label col-sm-2">{{'Ration Card' | translate}}</label>
+                     <div class="col-sm-3">
+                       <input type="text" id="rationCard" name="rationCard" ng-model="formData.rationCard"  class="form-control"
+                          minlength="9" late-Validate/>
+                     </div>
                   </div>
                   <div class="form-group" ng-show="showSavingOptions">
                      <label class="control-label col-sm-2">{{ 'label.input.opensavingsproduct' | translate }}&nbsp;</label>
@@ -445,6 +460,16 @@
                               <form-validate valattributeform="createclientform" valattribute="addressType"/>
                            </div>
                            <a ng-click="removeAddress($index)" uib-tooltip="{{'label.remove.row' | translate}}"><i class="fa fa-times"></i></a>
+                        </div>
+                        <div class="form-group">
+                           <div class="control-label col-sm-2">
+                              <label>{{ 'Residence Type' | translate }}</label>
+                           </div>
+                           <div class="col-sm-3" >
+                              <select chosen="residenceOptions"  ng-model="addressArray[$index].residenceTypeId"  class="form-control"
+                                 ng-options="residenceOption.id as residenceOption.name for residenceOption in residenceOptions track by residenceOption.id"
+                                 value="residenceTypeId"></select>
+                           </div>
                         </div>
                         <div class="form-group" ng-show="street">
                            <div class="control-label col-sm-2">

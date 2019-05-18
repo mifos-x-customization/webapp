@@ -106,6 +106,7 @@
                     scope.addressTypes=data.address[0].addressTypeIdOptions;
                     scope.countryOptions=data.address[0].countryIdOptions;
                     scope.stateOptions=data.address[0].stateProvinceIdOptions;
+                    scope.residenceOptions=data.address[0].residenceTypeIdOptions;
 
                     resourceFactory.addressFieldConfiguration.get({entity:entityname},function(data){
 
@@ -325,6 +326,10 @@
                         {
                             temp.addressTypeId=scope.addressArray[i].addressTypeId;
                         }
+                        if(scope.addressArray[i].residenceTypeId)
+                        {
+                          temp.residenceTypeId=scope.addressArray[i].residenceTypeId;
+                        }
                         if(scope.addressArray[i].street)
                         {
                             temp.street=scope.addressArray[i].street;
@@ -381,6 +386,31 @@
                         scope.formData.address.push(temp);
                     }
                 }
+                scope.formData.identifier = [];
+                if (scope.formData.voterId){
+                  // make the identifier array
+                  var document = new Object();
+                  document.documentTypeId = 28;
+                  document.documentKey = scope.formData.voterId;
+                  document.status = "ACTIVE";
+                  document.description = "Added by Client UI";
+
+                  scope.formData.identifier.push(document);
+                  delete scope.formData.voterId;
+                }
+
+                if (scope.formData.rationCard){
+                  var document = new Object();
+                  document.documentTypeId = 29;
+                  document.documentKey = scope.formData.rationCard;
+                  document.status = "ACTIVE";
+                  document.description = "Added by Client UI";
+
+                  scope.formData.identifier.push(document);
+                  delete scope.formData.rationCard;
+                }
+
+
 
 
                 // family array

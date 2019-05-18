@@ -17,6 +17,7 @@
             // address
             scope.addresses=[];
             scope.view={};
+            scope.view.residenceTypeId = true;
             scope.view.data=[];
            // scope.families=[];
             var entityname="ADDRESS";
@@ -422,7 +423,7 @@
                     $uibModalInstance.dismiss('cancel');
                 };
             };
-            
+
             scope.deleteSig = function () {
                 $uibModal.open({
                     templateUrl: 'deletesig.html',
