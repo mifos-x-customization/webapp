@@ -162,6 +162,8 @@
                 scope.addressArray.splice(index,1);
             }
 
+            // we make extra request to know which ID we need to use
+
 
 
 
@@ -386,28 +388,29 @@
                         scope.formData.address.push(temp);
                     }
                 }
-                scope.formData.identifier = [];
+
                 if (scope.formData.voterId){
+                  scope.formData.identifier = [];
                   // make the identifier array
                   var document = new Object();
-                  document.documentTypeId = 28;
+                  document.documentTypeId = "VOTERID";
                   document.documentKey = scope.formData.voterId;
                   document.status = "ACTIVE";
                   document.description = "Added by Client UI";
 
                   scope.formData.identifier.push(document);
-                  delete scope.formData.voterId;
+
                 }
 
                 if (scope.formData.rationCard){
                   var document = new Object();
-                  document.documentTypeId = 29;
+                  document.documentTypeId = "RATIONCARD";
                   document.documentKey = scope.formData.rationCard;
                   document.status = "ACTIVE";
                   document.description = "Added by Client UI";
 
                   scope.formData.identifier.push(document);
-                  delete scope.formData.rationCard;
+
                 }
 
 
@@ -473,7 +476,8 @@
                     scope.formData.familyMembers.push(temp);
                 }
 
-                //
+                delete scope.formData.voterId;
+                delete scope.formData.rationCard;
 
 
 
