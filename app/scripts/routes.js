@@ -623,6 +623,9 @@
             .when('/addmember', {
                 templateUrl: 'views/clients/createclient.html'
             })
+            .when('/addmemberByGroup',{
+              templateUrl: 'views/clients/createclientforgroups.html'
+            })
             .when('/groupattendance', {
                 templateUrl: 'views/groups/groupattendance.html'
             })

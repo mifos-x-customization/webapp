@@ -56,6 +56,7 @@ define(['Q', 'underscore', 'mifosX'], function (Q) {
             'client/ClientActionsController',
             'client/ClientDocumentController',
             'client/ClientIdentifierController',
+            'client/CreateClientForGroupController',
             'client/UploadClientIdentifierDocumentController',
             'client/ClientScreenReportController',
             'client/AddNewClientChargeController',

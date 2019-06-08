@@ -133,7 +133,7 @@
 										  				<i uib-tooltip="{{group.status.value}}" class="fa fa-stop {{group.status.code | StatusLookup}}" uib-tooltip=""></i> {{group.name}}
 										  			</a>
 										  			<div class="col-md-12 primarydiv" data-ng-hide="group.status.value == 'Closed'">
-											            <a href="#/addmember?groupId={{group.id}}&officeId={{group.officeId}}" class="btn btn-primary pull-right" has-permission='CREATE_CLIENT'>
+											            <a href="#/addmemberByGroup?groupId={{group.id}}&officeId={{group.officeId}}" class="btn btn-primary pull-right" has-permission='CREATE_CLIENT'>
 											                <i class="fa fa-plus-sign-alt "></i>{{ 'label.button.add' | translate }}</a>
 											            <a href="#/membermanage/{{group.id}}" class="btn btn-primary pull-right" has-permission='ASSOCIATECLIENTS_GROUP'>
 											                <i class="fa fa-edit "></i>{{'label.button.managemembers' | translate }}</a>
