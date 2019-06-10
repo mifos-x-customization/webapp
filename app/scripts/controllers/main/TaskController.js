@@ -6,6 +6,7 @@
             scope.offices = [];
             var idToNodeMap = {};
             scope.formData = {};
+
             scope.loanTemplate = {};
             scope.loanDisbursalTemplate = {};
             scope.date = {};
@@ -390,8 +391,12 @@
             };
 
             var ApproveLoanCtrl = function ($scope, $uibModalInstance) {
-                $scope.approve = function () {
-                    scope.bulkApproval();
+                $scope.approve = function (date) {
+                    if (date == undefined){
+                      date = new Date();
+                    }
+
+                    scope.bulkApproval(date);
                     route.reload();
                     $uibModalInstance.close('approve');
                 };
@@ -400,8 +405,8 @@
                 };
             }
 
-            scope.bulkApproval = function () {
-                scope.formData.approvedOnDate = dateFilter(new Date(), scope.df);
+            scope.bulkApproval = function (date) {
+                scope.formData.approvedOnDate = dateFilter(date, scope.df);
                 scope.formData.dateFormat = scope.df;
                 scope.formData.locale = scope.optlang.code;
                 var selectedAccounts = 0;
@@ -448,8 +453,11 @@
             };
 
             var DisburseLoanCtrl = function ($scope, $uibModalInstance) {
-                $scope.disburse = function () {
-                    scope.bulkDisbursal();
+                $scope.disburse = function (date) {
+                  if (date == undefined){
+                    date = new Date();
+                  }
+                    scope.bulkDisbursal(date);
                     route.reload();
                     $uibModalInstance.close('disburse');
                 };
@@ -458,8 +466,8 @@
                 };
             }
 
-            scope.bulkDisbursal = function () {
-                scope.formData.actualDisbursementDate = dateFilter(new Date(), scope.df);
+            scope.bulkDisbursal = function (date) {
+                scope.formData.actualDisbursementDate = dateFilter(date, scope.df);
                 scope.formData.dateFormat = scope.df;
                 scope.formData.locale = scope.optlang.code;
 

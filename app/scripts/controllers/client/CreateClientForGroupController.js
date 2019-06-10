@@ -53,7 +53,7 @@
                 scope.genderOptions = data.genderOptions;
                 // set Female as the option
                 angular.forEach(scope.genderOptions, function(d, index){
-                    if (d.name == 'Female') { scope.formData.genderId = 15};
+                    if (d.name == 'Female') { scope.formData.genderId = d.id};
 
                 })
 

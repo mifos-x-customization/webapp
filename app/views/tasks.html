@@ -285,10 +285,16 @@
                                 <div class="modal-body">
                                     <api-validate></api-validate>
                                     <br>
+                                    <td><label>{{ 'Approved on' | translate }}:&nbsp;</label></td>
+                                    <td class="paddedbottom10">
+
+                                    <input type="text" id="submittedOnDate" name="submittedon" datepicker-pop="dd MMMM yyyy"
+                                           ng-model="submittedOnDate" is-open="opened" class="form-control"/>
+                                           </td>
                                     <button class="btn btn-default" ng-click="cancel()">{{'label.button.cancel' |
                                         translate}}
                                     </button>
-                                    <button class="btn btn-primary" ng-click="approve()">{{'label.button.confirm' |
+                                    <button class="btn btn-primary" ng-click="approve(submittedOnDate)">{{'label.button.confirm' |
                                         translate}}
                                     </button>
                                 </div>
@@ -362,10 +368,16 @@
                                 <div class="modal-body">
                                     <api-validate></api-validate>
                                     <br>
+                                    <td><label>{{ 'Disbursed on' | translate }}:&nbsp;</label></td>
+                                    <td class="paddedbottom10">
+
+                                    <input type="text" id="submittedOnDate" name="submittedon" datepicker-pop="dd MMMM yyyy"
+                                           ng-model="submittedOnDate" is-open="opened" class="form-control"/>
+                                           </td>
                                     <button class="btn btn-default" ng-click="cancel()">{{'label.button.cancel' |
                                         translate}}
                                     </button>
-                                    <button class="btn btn-primary" ng-click="disburse()">{{'label.button.confirm' |
+                                    <button class="btn btn-primary" ng-click="disburse(submittedOnDate)">{{'label.button.confirm' |
                                         translate}}
                                     </button>
                                 </div>

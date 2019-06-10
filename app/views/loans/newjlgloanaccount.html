@@ -38,7 +38,7 @@
                             <table class="table">
                                 <tr>
                                     <td class="width14">
-                                        <label><span class="required">*</span>{{ 'label.input.loanofficer' | translate }}:&nbsp;</label>
+                                        <label>{{ 'label.input.loanofficer' | translate }}:&nbsp;<span class="required">*</span></label>
                                     </td>
                                     <td class="width36 paddedbottom10">
                                         <select id="loanOfficerId" ng-model="loanApplicationCommonData.loanOfficerId"
@@ -106,6 +106,7 @@
                                                 name="principal"
                                                 ng-model="group.clients[outerIndex].principal"
                                                 required
+                                                ng-disabled="true"
                                                 number-format
                                                 late-Validate/>&nbsp;{{productDetails.currency.displaySymbol}}
                                         <form-validate valattributeform="newjlgloanaccountform" valattribute="principal"/>
