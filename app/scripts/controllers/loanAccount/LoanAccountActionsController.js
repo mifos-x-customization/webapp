@@ -222,6 +222,7 @@
                 case "prepayloan":
                     scope.modelName = 'transactionDate';
                     scope.formData.transactionDate =  new Date();
+                    scope.formData.isPrepay = true;
                     resourceFactory.loanTrxnsTemplateResource.get({loanId: scope.accountId, command: 'prepayLoan'}, function (data) {
                         scope.paymentTypes = data.paymentTypeOptions;
                         if (data.paymentTypeOptions.length > 0) {
@@ -242,6 +243,7 @@
                     scope.showAmountField = true;
                     scope.taskPermissionName = 'REPAYMENT_LOAN';
                     scope.action = 'repayment';
+
                     break;
                 case "waiveinterest":
                     scope.modelName = 'transactionDate';
