@@ -156,7 +156,7 @@
                      <label class="control-label col-sm-2" ng-hide="showNonPersonOptions">{{'label.input.dateofbirth' | translate}}</label>
                      <label class="control-label col-sm-2" ng-show="showNonPersonOptions">{{'label.input.incorporationdate' | translate}}</label>
                      <div class="col-sm-3">
-                        <input id="dateofbirth" type="text" name="dateofbirth" datepicker-pop="dd MMMM yyyy" required
+                        <input id="dateofbirth" type="text" name="dateofbirth" datepicker-pop="dd MMMM yyyy" 
                            ng-model="first.dateOfBirth" is-open="opened1" min="minDate" max="restrictDate"  class="form-control"/>
                      </div>
                      <div data-ng-switch on="showNonPersonOptions">
