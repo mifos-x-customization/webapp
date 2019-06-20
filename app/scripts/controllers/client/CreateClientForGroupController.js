@@ -62,7 +62,7 @@
                 scope.clienttypeOptions = data.clientTypeOptions;
 
                 angular.forEach(scope.clientRoleOptions, function(d, index){
-                  if (d.name == 'Member') { scope.formData.roldId = d.id};
+                  if (d.name == 'Member') { scope.formData.roleId = d.id};
                 })
 
                 angular.forEach(scope.clienttypeOptions, function(d, index){
@@ -216,7 +216,7 @@
 
             // end of family members
 
-          
+
 
 
             scope.displayPersonOrNonPersonOptions = function (legalFormId) {

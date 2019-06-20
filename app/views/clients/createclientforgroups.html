@@ -27,7 +27,8 @@
                            <p class="form-control-static">{{forceOffice.name}}</p>
                         </div>
                      </div>
-                     <label class="control-label col-sm-2">{{'label.input.staff' | translate}}</label>
+                     <label class="control-label col-sm-2">{{'label.input.staff' | translate}}<span
+                        class="required">*</span></label>
                      <div class="col-sm-3">
                         <select chosen="staffs" id="staffId" ng-model="formData.staffId"  class="form-control"
                            ng-options="staff.id as staff.displayName for staff in staffs" value="{{staff.id}}" required>
@@ -150,7 +151,8 @@
                      </div>
                      <div>
                         <div>
-                           <label class="control-label col-sm-2">{{'Role' | translate}}</label>
+                           <label class="control-label col-sm-2">{{'Role' | translate}}<span
+                              class="required">*</span></label>
                            <div class="col-sm-3">
                              <select id="roleId" ng-model="formData.roleId"  class="form-control"
                                 ng-options="role.id as role.name for role in clientRoleOptions" value="{{role.id}}" required>
