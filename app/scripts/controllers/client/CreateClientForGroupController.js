@@ -1,6 +1,6 @@
 (function (module) {
     mifosX.controllers = _.extend(module, {
-        CreateClientForGroupController: function (scope, resourceFactory, location, http, dateFilter, API_VERSION, Upload, $rootScope, routeParams, WizardHandler) {
+        CreateClientForGroupController: function (scope, resourceFactory, location, http, dateFilter, API_VERSION, Upload, $rootScope, routeParams, WizardHandler, $window) {
 
             scope.offices = [];
             scope.staffs = [];
@@ -54,13 +54,28 @@
                 // set Female as the option
                 angular.forEach(scope.genderOptions, function(d, index){
                     if (d.name == 'Female') { scope.formData.genderId = d.id};
-
                 })
+
 
                 scope.characterOptions = data.characterOptions;
                 scope.clientRoleOptions = data.roleOptions
                 scope.clienttypeOptions = data.clientTypeOptions;
+
+                angular.forEach(scope.clientRoleOptions, function(d, index){
+                  if (d.name == 'Member') { scope.formData.roldId = d.id};
+                })
+
+                angular.forEach(scope.clienttypeOptions, function(d, index){
+                  if (d.name == 'Salaried') { scope.formData.clientTypeId = d.id};
+                })
+                angular.forEach(scope.characterOptions, function(d, index){
+                  if (d.name == 'Positive') { scope.formData.characterId = d.id};
+                })
                 scope.clientClassificationOptions = data.clientClassificationOptions;
+
+                angular.forEach(scope.clientClassificationOptions, function(d, index){
+                  if (d.name == 'Daily Income') { scope.formData.clientClassificationId = d.id};
+                })
                 scope.clientNonPersonConstitutionOptions = data.clientNonPersonConstitutionOptions;
                 scope.clientNonPersonMainBusinessLineOptions = data.clientNonPersonMainBusinessLineOptions;
                 scope.clientLegalFormOptions = data.clientLegalFormOptions;
@@ -115,7 +130,15 @@
                     scope.countryOptions=data.address[0].countryIdOptions;
                     scope.stateOptions=data.address[0].stateProvinceIdOptions;
                     scope.residenceOptions=data.address[0].residenceTypeIdOptions;
-
+                    angular.forEach(scope.addressTypes, function(d, index){
+                      if (d.name == 'Home') { scope.formData.addressTypeId = d.id};
+                    })
+                    angular.forEach(scope.stateOptions, function(d, index){
+                      if (d.name == 'Tamil Nadu') { scope.formData.addressTypeId = d.id};
+                    })
+                    angular.forEach(scope.countryOption, function(d, index){
+                      if (d.name == 'India') { scope.formData.countryId = d.id};
+                    })
                     resourceFactory.addressFieldConfiguration.get({entity:entityname},function(data){
 
 
@@ -193,7 +216,7 @@
 
             // end of family members
 
-
+          
 
 
             scope.displayPersonOrNonPersonOptions = function (legalFormId) {
@@ -256,8 +279,12 @@
                 return scope.df;
             };
 
+
+
             scope.submit = function () {
                 var reqDate = dateFilter(scope.first.date, scope.df);
+
+
 
                 this.formData.locale = scope.optlang.code;
                 this.formData.active = this.formData.active || false;
@@ -495,7 +522,7 @@
             };
         }
     });
-    mifosX.ng.application.controller('CreateClientForGroupController', ['$scope', 'ResourceFactory', '$location', '$http', 'dateFilter', 'API_VERSION', 'Upload', '$rootScope', '$routeParams', 'WizardHandler', mifosX.controllers.CreateClientForGroupController]).run(function ($log) {
+    mifosX.ng.application.controller('CreateClientForGroupController', ['$scope', 'ResourceFactory', '$location', '$http', 'dateFilter', 'API_VERSION', 'Upload', '$rootScope', '$routeParams', 'WizardHandler','$window',  mifosX.controllers.CreateClientForGroupController]).run(function ($log) {
         $log.info("CreateClientForGroupController initialized");
     });
 }(mifosX.controllers || {}));
