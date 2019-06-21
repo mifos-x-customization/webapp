@@ -270,7 +270,7 @@
                   <div class="form-group">
                      <label class="control-label col-sm-2" for="externalId">{{'Aadhar #' | translate}} </label>
                      <div class="col-sm-3">
-                        <input type="text" id="externalId" minlength="12" name="externalId" ng-model="formData.externalId"   class="form-control"/>
+                        <input type="text" id="externalId" minlength="12" maxlength="12" name="externalId" ng-model="formData.externalId"   class="form-control"/>
                      </div>
                   </div>
                   <div class="form-group" has-permission="ACTIVATE_CLIENT">
@@ -478,7 +478,7 @@
                               <label>{{ 'label.input.addressType' | translate }}<span class="required">*</span></label>
                            </div>
                            <div class="col-sm-3"  >
-                              <select chosen="addressTypes" name="addressType" ng-model="addressArray[$index].addressTypeId"  class="form-control"
+                              <select id="addressTypeId" name="addressType" ng-init="addressArray[$index].addressTypeId = addressTypes[0]" ng-model="addressArray[$index].addressTypeId"  class="form-control"
                                  ng-options="addressType.id as addressType.name for addressType in addressTypes track by addressType.id"
                                  value="addressTypeId" required late-validate></select>
                            </div>
@@ -549,7 +549,7 @@
                               <label>{{ 'label.input.state_province' | translate }}</label>
                            </div>
                            <div class="col-sm-3" >
-                              <select chosen="stateOptions"  ng-model="addressArray[$index].stateProvinceId"  class="form-control"
+                              <select id="stateProvinceId"  ng-model="addressArray[$index].stateProvinceId" ng-init="addressArray[$index].stateProvinceId = stateOptions[0]"  class="form-control"
                                  ng-options="stateOption.id as stateOption.name for stateOption in stateOptions track by stateOption.id"
                                  value="stateProvinceId"></select>
                            </div>
@@ -561,7 +561,7 @@
                               <label>{{ 'label.input.country' | translate }}</label>
                            </div>
                            <div class="col-sm-3" >
-                              <select chosen="countryOptions"  ng-model="addressArray[$index].countryId"  class="form-control"
+                              <select id="countryId"  ng-model="addressArray[$index].countryId" ng-init="addressArray[$index].countryId = countryOptions[0]" class="form-control"
                                  ng-options="countryOption.id as countryOption.name for countryOption in countryOptions track by countryOption.id"
                                  value="countryId"></select>
                            </div>

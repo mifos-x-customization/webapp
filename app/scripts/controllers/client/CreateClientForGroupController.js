@@ -130,15 +130,7 @@
                     scope.countryOptions=data.address[0].countryIdOptions;
                     scope.stateOptions=data.address[0].stateProvinceIdOptions;
                     scope.residenceOptions=data.address[0].residenceTypeIdOptions;
-                    angular.forEach(scope.addressTypes, function(d, index){
-                      if (d.name == 'Home') { scope.formData.addressTypeId = d.id};
-                    })
-                    angular.forEach(scope.stateOptions, function(d, index){
-                      if (d.name == 'Tamil Nadu') { scope.formData.addressTypeId = d.id};
-                    })
-                    angular.forEach(scope.countryOption, function(d, index){
-                      if (d.name == 'India') { scope.formData.countryId = d.id};
-                    })
+
                     resourceFactory.addressFieldConfiguration.get({entity:entityname},function(data){
 
 
@@ -184,8 +176,20 @@
             // address
 
             scope.addAddress=function()
+
             {
-                scope.addressArray.push({});
+              scope.addressArray.push({});
+              angular.forEach(scope.addressTypes, function(d, index){
+                if (d.name == 'Home') { scope.addressArray[0].addressTypeId = d.id};
+              })
+              angular.forEach(scope.stateOptions, function(d, index){
+                if (d.name == 'Tamil Nadu') { scope.addressArray[0].stateProvinceId = d.id};
+              })
+              angular.forEach(scope.countryOption, function(d, index){
+                if (d.name == 'India') { scope.addressArray[0].countryId = d.id};
+              })
+
+
             }
 
             scope.removeAddress=function(index)
