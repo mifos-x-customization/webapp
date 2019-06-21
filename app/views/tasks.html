@@ -393,6 +393,7 @@
                                         <th>{{'label.heading.client' | translate}}</th>
                                         <th>{{'label.heading.loanaccountnum' | translate}}</th>
                                         <th>{{'label.heading.loanproduct' | translate}}</th>
+                                        <th>{{'Group name'}}</th>
                                         <th>{{'label.heading.principal' | translate}}</th>
                                     </tr>
                                     </thead>
@@ -403,6 +404,7 @@
                                         <td><a href="#/viewclient/{{loan.clientId}}">{{loan.clientName}}</a></td>
                                         <td><a href="#/viewloanaccount/{{loan.id}}">{{loan.accountNo}}</a></td>
                                         <td><a href="#/viewloanaccount/{{loan.id}}">{{loan.loanProductName}}</a></td>
+                                        <td class="pointer">{{loan.group.name}}</td>
                                         <td>{{loan.principal | number}}</td>
                                     </tr>
                                     </tbody>

@@ -179,16 +179,6 @@
 
             {
               scope.addressArray.push({});
-              angular.forEach(scope.addressTypes, function(d, index){
-                if (d.name == 'Home') { scope.addressArray[0].addressTypeId = d.id};
-              })
-              angular.forEach(scope.stateOptions, function(d, index){
-                if (d.name == 'Tamil Nadu') { scope.addressArray[0].stateProvinceId = d.id};
-              })
-              angular.forEach(scope.countryOption, function(d, index){
-                if (d.name == 'India') { scope.addressArray[0].countryId = d.id};
-              })
-
 
             }
 
@@ -365,7 +355,7 @@
                         var temp=new Object();
                         if(scope.addressArray[i].addressTypeId)
                         {
-                            temp.addressTypeId=scope.addressArray[i].addressTypeId;
+                            temp.addressTypeId=scope.addressArray[i].addressTypeId.id;
                         }
                         if(scope.addressArray[i].residenceTypeId)
                         {
@@ -401,11 +391,11 @@
                         }
                         if(scope.addressArray[i].countryId)
                         {
-                            temp.countryId=scope.addressArray[i].countryId;
+                            temp.countryId=scope.addressArray[i].countryId.id;
                         }
                         if(scope.addressArray[i].stateProvinceId)
                         {
-                            temp.stateProvinceId=scope.addressArray[i].stateProvinceId;
+                            temp.stateProvinceId=scope.addressArray[i].stateProvinceId.id;
                         }
                         if(scope.addressArray[i].postalCode)
                         {
