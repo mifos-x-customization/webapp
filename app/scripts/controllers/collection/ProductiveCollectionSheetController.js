@@ -64,6 +64,14 @@
                     if(data.groups.length > 0){
                       scope.noData = false;
                     }
+                    // so we check and remove the groups with zero due.
+                    for (var i = 0; i < data.groups.length; i++){
+                      for (var i = 0; i < data.groups[i].clients.length; i++){
+                        if (data.groups[i].clients[i].loans[0].totalDue == 0){
+                            delete data.groups[i].clients[i]
+                        }
+                      }
+                    }
                     scope.clientsAttendanceArray(data.groups);
                     scope.total(data);
                 });
@@ -191,6 +199,9 @@
             };
 
             scope.submit = function () {
+                augment()
+              // We can put a check if someone tries to click two times
+
                 scope.formData.calendarId = scope.calendarId;
                 scope.formData.dateFormat = scope.df;
                 scope.formData.locale = scope.optlang.code;
@@ -199,6 +210,7 @@
                 scope.formData.bulkDisbursementTransactions = [];
                 scope.formData.bulkRepaymentTransactions = scope.bulkRepaymentTransactions;
                 resourceFactory.centerResource.save({'centerId': scope.centerId, command: 'saveCollectionSheet'}, scope.formData, function (data) {
+                    scope.buttonDisabled = true;
                     for (var i = 0; i < centerIdArray.length; i++) {
                         if (scope.centerId === centerIdArray[i].id && centerIdArray.length >= 1) {
                             scope.staffCenterData[i].submitted = true;
@@ -222,7 +234,30 @@
                     }
 
                 });
+              
             };
+            function augment() {
+                      var name, fn;
+                      for (name in scope) {
+                        fn = scope[name];
+                        if (typeof fn === 'function') {
+                          if (name.indexOf("$") !== -1) {
+                            scope[name] = (function(name, fn) {
+                              var args = arguments;
+                              return function() {
+                                console.log("calling " + name);
+                                console.time(name);
+                                fn.apply(this, arguments);
+                                console.timeEnd(name);
+                              }
+                            })(name, fn);
+                          }
+                        }
+                      }
+                    }
+
+
+
         }
     });
     mifosX.ng.application.controller('ProductiveCollectionSheetController', ['$scope', '$routeParams', 'ResourceFactory', 'dateFilter', '$location', mifosX.controllers.ProductiveCollectionSheetController]).run(function ($log) {

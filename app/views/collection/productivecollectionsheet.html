@@ -102,10 +102,10 @@
                         </table>
                     </div>
                     <div class="col-md-offset-9" ng-hide"noData">
-                        <button id="save" type="submit" class="btn btn-primary" ng-show="submitNextShow" ng-click="submit()">
+                        <button id="save" type="submit" class="btn btn-primary"  ng-show="submitNextShow" ng-click="submit()">
                             {{'label.button.submitandnextcenter' | translate}}
                         </button>
-                        <button id="save" type="submit" class="btn btn-primary" ng-show="submitShow" ng-click="submit()">
+                        <button id="save" type="submit" class="btn btn-primary" ng-disabled="buttonDisabled" ng-show="submitShow" ng-click="submit()">
                             {{'label.button.save' | translate}}
                         </button>
                     </div>

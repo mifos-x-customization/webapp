@@ -232,6 +232,12 @@
                         getAllEmployees: {method: 'GET', params: {}, isArray: true},
                         update: { method: 'PUT' }
                     }),
+                    createEmployee: defineResource(apiVer + "/staff", {
+
+                    }),
+                    staffResource: defineResource(apiVer + "/staff", {officeId: '@officeId', staffInOfficeHierarchy:'true'}, {
+                      getParentStaff: {method: 'GET', params:{}, isArray:true}
+                    }),
                     globalSearch: defineResource(apiVer + "/search", {query: '@query', resource: '@resource'}, {
                         search: { method: 'GET',
                             params: { query: '@query' , resource: '@resource'},

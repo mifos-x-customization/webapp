@@ -17,18 +17,29 @@
     			        <div class="form-group">
     			            <label class="control-label col-sm-2" for="officeId">{{ 'label.input.office' | translate }}<span
     			                    class="required">*</span></label>
-    			
+
     			            <div class="col-sm-3">
-    			                <select chosen="offices" id="officeId" ng-model="formData.officeId" class="form-control"
+    			                <select chosen="offices" id="officeId" ng-model="formData.officeId" class="form-control" data-ng-change="getParentStaff()"
     			                        ng-options="office.id as office.name for office in offices" value="{{office.id}}">
     			                </select>
     			            </div>
     			        </div>
-    			
+
+                  <div class="form-group">
+        	            <label class="control-label col-sm-2">{{'Parent Staff' | translate}}</label>
+
+        	            <div class="col-sm-3">
+        	                <select chosen="parentStaff" id="staffId" ng-model="formData.staffId"  class="form-control"
+        	                        ng-options="staff.id as staff.displayName for staff in parentStaff" value="{{staff.id}}">
+        	                    <option value="">--{{'label.menu.selectstaff' | translate}}--</option>
+        	                </select>
+        	            </div>
+        	        </div>
+
     			        <div class="form-group">
     			            <label class="control-label col-sm-2" for="firstname">{{ 'label.input.firstname' | translate }}<span
     			                    class="required">*</span></label>
-    			
+
     			            <div class="col-sm-3">
     			                <input type="text" id="firstname" name="firstname" ng-model="formData.firstname" class="form-control" required
     			                       ng-pattern="/(^[A-z])[A-z.'-]*/" late-Validate/>
@@ -42,11 +53,11 @@
     			                <form-validate valattributeform="createemployeeform" valattribute="firstname"/>
     			            </div>
     			        </div>
-    			
+
     			        <div class="form-group">
     			            <label class="control-label col-sm-2" for="lastname">{{ 'label.input.lastname' | translate }}<span
     			                    class="required">*</span></label>
-    			
+
     			            <div class="col-sm-3">
     			                <input type="text" id="lastname" name="lastname" ng-model="formData.lastname" class="form-control" required ng-pattern="/(^[A-z])[A-z.'-]*/" late-Validate/>
     			            </div>
@@ -59,20 +70,20 @@
     			                <form-validate valattributeform="createemployeeform" valattribute="lastname"/>
     			            </div>
     			        </div>
-    			
+
     			        <div class="form-group">
     			            <label class="control-label col-sm-2" for="isLoanOfficer">{{ 'label.input.isLoanOfficer' | translate }}</label>
-    			
+
     			            <div class="col-sm-3">
     			                <label class="checkbox">
     			                    <input type="checkbox" id="isLoanOfficer" ng-model="formData.isLoanOfficer">
     			                </label>
     			            </div>
     			        </div>
-    			
+
     			        <div class="form-group">
     			            <label class="control-label col-sm-2" for="mobileNo">{{ 'label.input.mobileNo' | translate }}</label>
-    			
+
     			            <div class="col-sm-3">
     			                <input type="text" id="mobileNo" class="form-control" ng-model="formData.mobileNo">
     			            </div>
@@ -84,7 +95,7 @@
     		                           class="form-control" is-open="opened" min="minDat()" max="restrictDate" late-Validate />
     		                </div>
     		            </div>
-    			
+
     			        <div class="col-md-offset-3">
     			            <a id="cancel" href="#/employees">
     			                <button type="reset" class="btn btn-default">{{'label.button.cancel'| translate}}</button>
@@ -96,4 +107,3 @@
     	</div>
     </div>
 </div>
-

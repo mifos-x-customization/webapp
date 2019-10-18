@@ -2,6 +2,7 @@
     mifosX.controllers = _.extend(module, {
         CreateEmployeeController: function (scope, resourceFactory, location, dateFilter) {
             scope.offices = [];
+            scope.parentStaff = [];
             scope.restrictDate = new Date();
             resourceFactory.officeResource.getAllOfficesInAlphabeticalOrder(function (data) {
                 scope.offices = data;
@@ -10,6 +11,14 @@
                     officeId: scope.offices[0].id,
                 };
             });
+
+            // We need to get the data on the 0th first and then use ng-change
+            scope.getParentStaff = function(){
+              resourceFactory.staffResource.getParentStaff({officeId: scope.formData.officeId, staffInOfficeHierarchy:true} , function(data){
+                scope.parentStaff = data;
+              });
+            }
+
 
              scope.minDat = function() {
                  for(var i=0;i<scope.offices.length;i++) {
@@ -24,7 +33,7 @@
                 var joiningDate = dateFilter(scope.formData.joiningDate, scope.df);
                 this.formData.dateFormat = scope.df;
                 this.formData.joiningDate = joiningDate;
-                resourceFactory.employeeResource.save(this.formData, function (data) {
+                resourceFactory.createEmployee.save(this.formData, function (data) {
                     location.path('/viewemployee/' + data.resourceId);
                 });
             };
