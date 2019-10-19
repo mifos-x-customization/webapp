@@ -68,7 +68,7 @@
                     for (var i = 0; i < data.groups.length; i++){
                       for (var i = 0; i < data.groups[i].clients.length; i++){
                         if (data.groups[i].clients[i].loans[0].totalDue == 0){
-                            delete data.groups[i].clients[i]
+                            delete data.groups[i].clients[i].loans[0]
                         }
                       }
                     }
@@ -234,7 +234,7 @@
                     }
 
                 });
-              
+
             };
             function augment() {
                       var name, fn;
