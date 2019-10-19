@@ -65,13 +65,7 @@
                       scope.noData = false;
                     }
                     // so we check and remove the groups with zero due.
-                    for (var i = 0; i < data.groups.length; i++){
-                      for (var i = 0; i < data.groups[i].clients.length; i++){
-                        if (data.groups[i].clients[i].loans[0].totalDue == 0){
-                            delete data.groups[i].clients[i].loans[0]
-                        }
-                      }
-                    }
+                    
                     scope.clientsAttendanceArray(data.groups);
                     scope.total(data);
                 });
