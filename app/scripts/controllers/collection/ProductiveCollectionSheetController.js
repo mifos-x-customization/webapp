@@ -65,7 +65,7 @@
                       scope.noData = false;
                     }
                     // so we check and remove the groups with zero due.
-                    
+
                     scope.clientsAttendanceArray(data.groups);
                     scope.total(data);
                 });
@@ -193,9 +193,6 @@
             };
 
             scope.submit = function () {
-                augment()
-              // We can put a check if someone tries to click two times
-
                 scope.formData.calendarId = scope.calendarId;
                 scope.formData.dateFormat = scope.df;
                 scope.formData.locale = scope.optlang.code;
@@ -230,27 +227,7 @@
                 });
 
             };
-            function augment() {
-                      var name, fn;
-                      for (name in scope) {
-                        fn = scope[name];
-                        if (typeof fn === 'function') {
-                          if (name.indexOf("$") !== -1) {
-                            scope[name] = (function(name, fn) {
-                              var args = arguments;
-                              return function() {
-                                console.log("calling " + name);
-                                console.time(name);
-                                fn.apply(this, arguments);
-                                console.timeEnd(name);
-                              }
-                            })(name, fn);
-                          }
-                        }
-                      }
-                    }
-
-
+      
 
         }
     });
