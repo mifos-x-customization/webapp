@@ -201,6 +201,10 @@
                 scope.formData.bulkDisbursementTransactions = [];
                 scope.formData.bulkRepaymentTransactions = scope.bulkRepaymentTransactions;
                 resourceFactory.centerResource.save({'centerId': scope.centerId, command: 'saveCollectionSheet'}, scope.formData, function (data) {
+                    if(scope.buttonDisabled){
+                      // we make it false
+                      scope.buttonDisabled = false;
+                    }
                     scope.buttonDisabled = true;
                     for (var i = 0; i < centerIdArray.length; i++) {
                         if (scope.centerId === centerIdArray[i].id && centerIdArray.length >= 1) {
@@ -227,7 +231,8 @@
                 });
 
             };
-      
+            scope.buttonDisabled = false;
+
 
         }
     });
