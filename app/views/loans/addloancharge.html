@@ -58,9 +58,18 @@
                                     class="required">*</span></label>
 
                             <div class="col-sm-3">
+<<<<<<< HEAD
                                 <input id="dueDate" type="text" datepicker-pop="dd MMMM yyyy" class="form-control"
                                        placeholder="{{'label.input.duedate' | translate}}" ng-model="formData.dueDate"
                                        is-open="opened" min="minDate" max="'2020-06-22'"/>
+=======
+                                <input id="dueDate" name = "dueDate" type="text" datepicker-pop="dd MMMM yyyy" class="form-control"
+                                       placeholder="{{'label.input.duedate' | translate}}" ng-model="first.date"
+                                       is-open="opened" min="minDate"  readonly required late-Validate/>
+                            </div>
+                            <div class="col-sm-2">
+                                    <form-validate valattributeform="loanchargeform" valattribute="dueDate"/>
+>>>>>>> cbefc76f... #3239 Date Picker locked till 22-06-2020 Fix (#3242)
                             </div>
                         </div>
                     </div>
